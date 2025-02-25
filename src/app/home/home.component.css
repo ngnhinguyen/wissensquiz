@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100&display=swap');
+
+body {
+    margin: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Outfit", sans-serif;
+    background-image: url('https://i.pinimg.com/736x/f2/f7/7a/f2f77a8240a9c6b89b5d7f89bf38e84a.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .description {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .cta {
+    margin-top: 30px;
+  }
+  
+  .cta .btn {
+    text-decoration: none;
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin: 0 10px;
+    transition: background 0.3s ease;
+  }
+  
+  .cta .btn.secondary {
+    background: #6c757d;
+  }
+  
+  .cta .btn:hover {
+    background: #0056b3;
+  }
+  
+  .puzzle-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    position: relative;
+    height: 150px;
+  }
+  
+  .puzzle-piece {
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    border-radius: 6px;
+    margin: 5px;
+    animation: float 1.5s infinite ease-in-out;
+  }
+  
+  .puzzle-piece:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  
+  .puzzle-piece:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  
+  .puzzle-piece:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  
+  .puzzle-piece:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  

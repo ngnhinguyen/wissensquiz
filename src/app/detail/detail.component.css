@@ -1,0 +1,81 @@
+
+body {
+    background-color: #f8f9fa;
+    font-family: "Outfit", sans-serif;
+  }
+  
+
+  main {
+    background-color: #f1f5f9; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  fieldset {
+    max-width: 500px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+
+  legend {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+  }
+  
+
+  .form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+  }
+  
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+    background-color: transparent;
+    transition: all 0.2s;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #ffffff;
+  }
+  
+
+  @media (max-width: 576px) {
+    fieldset {
+      max-width: 90%;
+    }
+  
+    .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
