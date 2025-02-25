@@ -1,0 +1,36 @@
+
+.container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .bi {
+    font-size: 1.25rem;
+  }
+  
+  .text-danger {
+    color: #dc3545 !important;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Outfit", sans-serif;
+    background-image: url('/assets/hintergrundbild.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+  
