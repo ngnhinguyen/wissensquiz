@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Member = require('./models/members');
+const Member = require('./models/members').default;
 
 // GET all members
 router.get('/members', async (req, res) => {
@@ -9,6 +9,7 @@ router.get('/members', async (req, res) => {
     res.send(allMembers);
 });
 
+//post
 router.post('/members', async (req, res) => {
     try {
         const newMember = new Member({

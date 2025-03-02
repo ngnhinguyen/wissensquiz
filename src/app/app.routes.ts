@@ -17,6 +17,7 @@ export const routes: Routes = [{
     path: "create",
     component: CreateComponent
   },
+  { path: "**", redirectTo: "" },
   {
     path: "member/:id",
     component: DetailComponent
