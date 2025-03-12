@@ -4,6 +4,7 @@ import { TableComponent } from './table/table.component';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
 import { LoginComponent } from './login/login.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 export const routes: Routes = [{
   path: "",
@@ -23,5 +24,6 @@ export const routes: Routes = [{
   component: DetailComponent
 },
 { path: "login", component: LoginComponent },
+{ path: "quiz", component: QuizComponent },
 
 { path: "**", redirectTo: "" },];
