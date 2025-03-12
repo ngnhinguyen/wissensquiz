@@ -24,8 +24,8 @@ export class LoginComponent {
   }
 
   login() {
-    if (this.loginForm.valid) {
-      this.bs.login(this.loginForm.value.email, this.loginForm.value.password)
+    if (this.loginForm.valid) { //valid nötig, damit Formular nicht leer ist (alles ausgefüllt) oder falsche EIngabe
+      this.bs.login(this.loginForm.value.email, this.loginForm.value.password) //login Methode aus BackendService wird aufgerufen
         .then(()=>{ this.router.navigate(['/table'])
         });
     }

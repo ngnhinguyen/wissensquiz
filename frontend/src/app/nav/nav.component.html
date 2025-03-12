@@ -6,11 +6,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          <h2 *ngIf="email">Hallo {{ email }}!</h2>
           <a class="nav-link"[routerLink]="['/']">Start</a>
-          <a class="nav-link" [routerLink]="['/create']">Hier Anmelden</a>
-          <a class="nav-link" [routerLink]="['/table']">Teilnehmer/innen</a>
           <a class="nav-link"[routerLink]="['/login']">Login</a>
-
+          <a class="nav-link" [routerLink]="['/create']">Hier registrieren</a>
+          <a class="nav-link" [routerLink]="['/table']">Teilnehmer/innen</a>
         </div>
       </div>
     </div>
