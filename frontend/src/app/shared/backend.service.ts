@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Member } from '../../../../backend/member';
+import { Question } from '../../../../backend/question';
 
 //CRUD- Operationen: Create, Read, Update, Delete
 //Benutzer Authentifizierung: Login, Logout
@@ -16,6 +17,19 @@ export class BackendService {
 
 
   constructor() { }
+
+
+  async getAllQuestions(): Promise<Question[]> { //Funktion gibt Promise zurück, dass in der Zukunft (später) eine Liste von Member Objekten enhtalten wird
+    const response = await fetch(`${this.apiURL}/questions`, { //Warte, bis fetch fertig ist, also stoppt kurz und wartet auf Antwort vom Server, sobald sie da ist, in response speichern //!!! ohne await läuft Code weiter, ohne dass die Daten bzw. Antwort da ist
+    });
+    if (!response.ok) { //falls response (antwort vom server, nachdem anfrage bearbeitet wurde) nicht ok, Fehlermeldung, z.B. wenn Server nicht erreichbar ist
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json(); // Gibt Promise zurück als JSON
+    //const data = await response.json();
+    //console.log('Geladene Mitglieder:', data); // Debugging   
+    //return data;
+  }
 
   // GET Anfrage an /mmembers, um alle Mitglieder zu erhalten
   //async, wenn Aufgabe länger braucht, als der Rest des Codes, wird asynchron ausgeführt

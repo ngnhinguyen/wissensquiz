@@ -1,8 +1,20 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
-const Member = require('./models/members').default;
+const Question = require('./models/question');
+const Member = require('./models/members'); //.default entfernt
 const userService = require('./userService');
+
+router.get('/questions', async (req, res) => {
+    try {
+        const questions = await Question.find(); // Alle Fragen abrufen
+        console.log('Geladene Fragen:', questions); // Debugging
+        res.json(questions);
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Fragen:', error); // Logge den Fehler ins Terminal
+        res.status(500).json({ message: 'Fehler beim Abrufen der Fragen', error });
+    }
+});
 
 //Express backend mit node.js mit express empfängt daten und verarbeitet sie
 
@@ -23,6 +35,8 @@ authenticateToken = (req, res, next) => {
         req.user = decoded; next();
     });
 };
+
+
 
 
 // GET all members, aber nur wenn der Benutzer authentifiziert ist bzw eingeloggt ist
@@ -126,6 +140,62 @@ router.post('/login', async (req, res) => {
 
     const token = userService.generateToken(user); //methode generateToken aus userService.js wird aufgerufen
     res.status(200).json({ token }); //token wird zurückgegeben
+});
+
+
+
+// 📌 **Neue Frage hinzufügen (POST)**
+router.post('/questions', async (req, res) => {
+    try {
+        const newQuestion = new Question(req.body); // Neue Frage erstellen
+        await newQuestion.save(); // Speichern in DB
+        res.status(201).json({ message: 'Frage erfolgreich gespeichert!', question: newQuestion });
+    } catch (error) {
+        res.status(500).json({ message: 'Fehler beim Speichern der Frage', error });
+    }
+});
+
+// 📌 **Eine bestimmte Frage abrufen (GET by ID)**
+router.get('/questions/:id', async (req, res) => {
+    try {
+        const question = await Question.findById(req.params.id);
+        if (!question) {
+            return res.status(404).json({ message: 'Frage nicht gefunden' });
+        }
+        res.json(question);
+    } catch (error) {
+        res.status(500).json({ message: 'Fehler beim Abrufen der Frage', error });
+    }
+});
+
+// 📌 **Frage aktualisieren (PUT)**
+router.put('/questions/:id', async (req, res) => {
+    try {
+        const updatedQuestion = await Question.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        if (!updatedQuestion) {
+            return res.status(404).json({ message: 'Frage nicht gefunden' });
+        }
+        res.json({ message: 'Frage aktualisiert', question: updatedQuestion });
+    } catch (error) {
+        res.status(500).json({ message: 'Fehler beim Aktualisieren der Frage', error });
+    }
+});
+
+// 📌 **Frage löschen (DELETE)**
+router.delete('/questions/:id', async (req, res) => {
+    try {
+        const deletedQuestion = await Question.findByIdAndDelete(req.params.id);
+        if (!deletedQuestion) {
+            return res.status(404).json({ message: 'Frage nicht gefunden' });
+        }
+        res.json({ message: 'Frage erfolgreich gelöscht' });
+    } catch (error) {
+        res.status(500).json({ message: 'Fehler beim Löschen der Frage', error });
+    }
 });
 
 
