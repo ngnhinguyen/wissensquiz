@@ -1,8 +1,10 @@
+@import './../sidebar/sidebar.component.css';
+
 .question-card {
     background: #f8f9fa;
     padding: 15px;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -28,6 +30,10 @@
 }
 
 .explanation {
+    font-style: italic;
+    color: #6c757d;
+}
+.category {
     font-style: italic;
     color: #6c757d;
 }

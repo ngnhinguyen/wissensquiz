@@ -18,6 +18,13 @@ export class BackendService {
 
   constructor() { }
 
+  async getQuestionsByCategory(category: string): Promise<Question[]> {
+    const response = await fetch(`${this.apiURL}/questions/category/${category}`);
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+}
 
   async getAllQuestions(): Promise<Question[]> { //Funktion gibt Promise zurück, dass in der Zukunft (später) eine Liste von Member Objekten enhtalten wird
     const response = await fetch(`${this.apiURL}/questions`, { //Warte, bis fetch fertig ist, also stoppt kurz und wartet auf Antwort vom Server, sobald sie da ist, in response speichern //!!! ohne await läuft Code weiter, ohne dass die Daten bzw. Antwort da ist

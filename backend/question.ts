@@ -5,4 +5,5 @@ export interface Question {
     explanation: String,
     options: [String],
     questions: string;
+    category: String;
 }

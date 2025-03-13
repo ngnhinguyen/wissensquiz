@@ -5,6 +5,9 @@ import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
 import { LoginComponent } from './login/login.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { CssQuizComponent } from './css-quiz/css-quiz.component';
+import { HtmlQuizComponent } from './html-quiz/html-quiz.component';
+
 
 export const routes: Routes = [{
   path: "",
@@ -25,5 +28,7 @@ export const routes: Routes = [{
 },
 { path: "login", component: LoginComponent },
 { path: "quiz", component: QuizComponent },
+{ path: "css-quiz", component: CssQuizComponent},
+{ path: "html-quiz", component: HtmlQuizComponent},
 
 { path: "**", redirectTo: "" },];

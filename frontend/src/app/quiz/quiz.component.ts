@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BackendService } from '../shared/backend.service';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SidebarComponent],
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.css',
+  styleUrl: './quiz.component.html',
 })
 export class QuizComponent implements OnInit {
     questions: any[] = [];

@@ -5,6 +5,7 @@ const questionSchema = new mongoose.Schema({
     options: [String],
     correctAnswer: String,
     explanation: String,
+    category: String,
 });
 
 module.exports = mongoose.model('Question', questionSchema);
