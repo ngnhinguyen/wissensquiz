@@ -1,25 +1,42 @@
-<div class="container mt-5">
-    <h1 class="text-center text-primary mb-4">Alle Quizfragen</h1>
-
-    <!-- Falls noch keine Fragen geladen sind -->
-    <div *ngIf="questions.length === 0" class="text-center mt-4">
-      <p class="text-danger">⚠ Keine Fragen gefunden. Lade Daten...</p>
+<h1>Test HTML</h1>
+<div class="quiz-container" *ngIf="!quizCompleted; else quizEnd">
+    <div class="quiz-header">
+      <span class="question-count">Frage {{ currentQuestionIndex + 1 }} von {{ totalQuestions }}</span>
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="progress"></div>
+      </div>
+      <span class="timer">⏱ {{ timeLeft }}s</span>
     </div>
-
-    <!-- Fragen anzeigen -->
-    <div *ngFor="let question of questions; let i = index" class="question-card">
-        <h3 class="text-dark">Frage {{ i + 1 }}:</h3>
-        <p class="question-text"><strong>{{ question.question }}</strong></p>
-
-        <p><strong>Antwortmöglichkeiten:</strong></p>
-        <ul class="options-list">
-            <li *ngFor="let option of question.options">{{ option }}</li>
-        </ul>
-
-        <p class="correct-answer"><strong>Richtige Antwort:</strong> <span class="text-success">{{ question.correctAnswer }}</span></p>
-        <p class="explanation"><strong>Erklärung:</strong> {{ question.explanation }}</p>
-        <p class="category"><strong>Kategorie:</strong> {{ question.category }}</p>
-        <hr> <!-- Trenner zwischen den Fragen -->
+  
+    <div class="question-box">
+      <h3>FRAGE {{ currentQuestionIndex + 1 }}</h3>
+      <p>{{ questions[currentQuestionIndex]?.question }}</p>
     </div>
-</div>
-<app-sidebar></app-sidebar>
+  
+    <div class="options">
+      <button
+        *ngFor="let option of questions[currentQuestionIndex]?.options"
+        (click)="selectAnswer(option)"
+        [class.selected]="option === selectedAnswer"
+        [class.correct]="option === selectedAnswer && option === questions[currentQuestionIndex]?.correctAnswer"
+        [class.wrong]="option === selectedAnswer && option !== questions[currentQuestionIndex]?.correctAnswer"
+        [disabled]="selectedAnswer !== null"
+      >
+        {{ option }}
+      </button>
+    </div>
+  
+    <button class="next-button" (click)="nextQuestion()" [disabled]="!selectedAnswer">WEITER</button>
+  </div>
+  
+  <ng-template #quizEnd>
+    <div class="quiz-container">
+      <h2>Spiel beendet!</h2>
+      <p>Du hast {{ correctAnswers }} von {{ totalQuestions }} Fragen richtig beantwortet.</p>
+      <p>Gesamtzeit: {{ totalTime }} Sekunden</p>
+      <button (click)="restartQuiz()">Quiz erneut starten</button>
+    </div>
+  </ng-template>
+  
+    <app-sidebar></app-sidebar>
+    ```

@@ -1,39 +1,36 @@
 @import './../sidebar/sidebar.component.css';
-
-.question-card {
-    background: #f8f9fa;
-    padding: 15px;
+.sidebar {
     border-radius: 8px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.question-text {
-    font-size: 18px;
+    background-color: #f8f9fa;
+    position: absolute;
+    left: 10px;
+    top: 167px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 10px;
+  }
+  
+  .sidebar li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #007bff;
     font-weight: bold;
+    padding-right: 5px;
+  }
+  
+  .sidebar a.active {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  .content {
+    margin-left: 220px;
+    padding: 20px;
 }
-
-.options-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.options-list li {
-    background: #e9ecef;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
-}
-
-.correct-answer {
-    font-size: 16px;
-}
-
-.explanation {
-    font-style: italic;
-    color: #6c757d;
-}
-.category {
-    font-style: italic;
-    color: #6c757d;
-}
+  

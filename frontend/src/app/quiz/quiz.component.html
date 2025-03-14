@@ -1,10 +1,5 @@
 <div class="container mt-5">
-    <h1 class="text-center text-primary mb-4">Alle Quizfragen</h1>
-
-    <!-- Falls noch keine Fragen geladen sind -->
-    <div *ngIf="questions.length === 0" class="text-center mt-4">
-      <p class="text-danger">⚠ Keine Fragen gefunden. Lade Daten...</p>
-    </div>
+    <h1 class="text-center text-primary mb-4">Alle Fragen</h1>
 
     <!-- Fragen anzeigen -->
     <div *ngFor="let question of questions; let i = index" class="question-card">
@@ -21,5 +16,5 @@
         <p class="category"><strong>Kategorie:</strong> {{ question.category }}</p>
         <hr> <!-- Trenner zwischen den Fragen -->
     </div>
+    <app-sidebar></app-sidebar>
 </div>
-<app-sidebar></app-sidebar>
