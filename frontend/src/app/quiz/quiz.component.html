@@ -1,11 +1,19 @@
 <div class="container mt-5">
     <h1 class="text-center text-primary mb-4">Alle Fragen</h1>
-
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="createQuestion()">Neue Frage erstellen</button>
+    </div>
     <!-- Fragen anzeigen -->
     <div *ngFor="let question of questions; let i = index" class="question-card">
         <h3 class="text-dark">Frage {{ i + 1 }}:</h3>
-        <p class="question-text"><strong>{{ question.question }}</strong></p>
-
+        <p class="question-text"><strong>{{ question.question }}</strong>
+            <a (click)="updateQuestion(question._id)" class="text-decoration-none" style="cursor: pointer;">
+                <span class="bi bi-pencil-square"></span>
+            </a>
+            <a (click)="deleteQuestion(question)" class="text-decoration-none" style="cursor: pointer;">
+                <span class="bi bi-trash"></span>
+            </a>
+        </p>
         <p><strong>Antwortmöglichkeiten:</strong></p>
         <ul class="options-list">
             <li *ngFor="let option of question.options">{{ option }}</li>

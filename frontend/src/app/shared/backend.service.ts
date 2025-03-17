@@ -18,6 +18,54 @@ export class BackendService {
 
   constructor() { }
 
+  async deleteQuestion(question: string): Promise<void> {
+    //delete request
+    return fetch(`${this.apiURL}/questions/${question}`, {
+      method: 'DELETE',
+    }).then(res => {
+      if (!res.ok) {
+        throw new Error('Failed to delete question');
+      }
+    });
+  }
+  
+  async createQuestion(newData: Question): Promise<Question> {
+    let response = await fetch(`${this.apiURL}/questions`, {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Fehler beim Erstellen der Frage`);
+    }
+  
+    let newQuestion = await response.json();
+    console.log('New question:', newQuestion);
+    return newQuestion;
+  }
+
+  async updateQuestion(id: string, updateData: Partial<Question>): Promise<Question> {
+    let response = await fetch(`${this.apiURL}/questions/id/${id}`, {
+      method: "PUT", // PUT für Update-Requests
+      body: JSON.stringify(updateData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Fehler beim Aktualisieren der Frage mit ID ${id}`);
+    }
+  
+    let updatedQuestion = await response.json();
+    console.log('Updated question:', updatedQuestion);
+    return updatedQuestion;
+  }
+  
+
   async getQuestionsByCategory(category: string): Promise<Question[]> {
     const response = await fetch(`${this.apiURL}/questions/category/${category}`);
     if (!response.ok) {
