@@ -27,19 +27,16 @@ export class QuizComponent implements OnInit {
 
   createQuestion(): void {
     const dialogRef = this.dialog.open(QuestionDialogComponent, {
-      data: {
-        question: null,
-      },
-    });
-
+      data: { question: null }
+    }); 
+  
     dialogRef.afterClosed().subscribe((newQuestion) => {
       if (newQuestion) {
         console.log('Neue Frage erstellt:', newQuestion);
-        // Füge die neue Frage zur Liste der Fragen hinzu
         this.questions.push(newQuestion);
       }
     });
-  }
+  }  
 
   deleteQuestion(question: Question): void {
     if (confirm(`Möchten Sie die Frage ${question.question} wirklich löschen?`)) {

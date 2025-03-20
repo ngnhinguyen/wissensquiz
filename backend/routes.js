@@ -21,7 +21,9 @@ router.post('/questions', async (req, res) => {
             question: req.body.question,
             answer: req.body.answer,
             category: req.body.category,
-            difficulty: req.body.difficulty
+            options: req.body.options,
+            explanation: req.body.explanation,
+            correctAnswer: req.body.correctAnswer,
         });
         await newQuestion.save();
         res.status(201).send(newQuestion);

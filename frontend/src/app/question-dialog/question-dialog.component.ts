@@ -10,40 +10,43 @@ import { FormBuilder, FormGroup, Validators, FormArray, ReactiveFormsModule } fr
 import { CommonModule } from '@angular/common';
 import { Question } from '../../../../backend/question';
 
-
 @Component({
   selector: 'app-question-dialog',
   imports: [CommonModule, MatDialogModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, MatIconModule],
   templateUrl: './question-dialog.component.html',
   styleUrl: './question-dialog.component.css'
 })
-export class QuestionDialogComponent {
+export class QuestionDialogComponent implements OnInit {
 
   readonly backendService = inject(BackendService);
   readonly dialogRef = inject(MatDialogRef);
   readonly question: Question = inject(MAT_DIALOG_DATA).question;
 
   isCreating: boolean = false;
-
-
-
-
   questionForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
-  
+
   ngOnInit(): void {
     console.warn('Frage:', this.question);
     this.questionForm = this.fb.group({
       _id: [this.question?._id || ''],
       correctAnswer: [this.question?.correctAnswer || '', Validators.required],
       explanation: [this.question?.explanation || ''],
-      options: this.fb.array(this.question?.options || [''], Validators.required),
+      options: this.fb.array([], Validators.required),
       question: [this.question?.question || '', Validators.required],
       category: [this.question?.category || '', Validators.required]
     });
 
     this.isCreating = !this.question;
+
+    if (this.isCreating) {
+      for (let i = 0; i < 4; i++) {
+        this.addOption();
+      }
+    } else {
+      this.question.options.forEach(opt => this.options.push(this.fb.control(opt)));
+    }
   }
 
   saveQuestion(): void {
@@ -53,21 +56,28 @@ export class QuestionDialogComponent {
       this.updateQuestion();
     }
   }
-  
+
   createQuestion(): void {
-    this.backendService.createQuestion(this.questionForm.value)
+    const formValue = this.questionForm.value;
+    const questionPayload: Question = {
+      _id: formValue._id,
+      question: formValue.question,
+      category: formValue.category,
+      correctAnswer: formValue.correctAnswer,
+      explanation: formValue.explanation,
+      options: this.options.value
+    };
+  
+    this.backendService.createQuestion(questionPayload)
       .then(newQuestion => {
         this.dialogRef.close(newQuestion);
       })
       .catch(error => console.error('Fehler beim Erstellen der Frage:', error));
   }
-
+  
 
   updateQuestion(): void {
-
-   const formValueAsPartial: Partial<Question> = this.questionForm.value;
-
-
+    const formValueAsPartial: Partial<Question> = this.questionForm.value;
     this.backendService.updateQuestion(this.question._id, formValueAsPartial)
       .then(updatedQuestion => {
         this.dialogRef.close(updatedQuestion);
@@ -78,7 +88,7 @@ export class QuestionDialogComponent {
   get options(): FormArray {
     return this.questionForm.get('options') as FormArray;
   }
-  
+
   addOption(): void {
     this.options.push(this.fb.control(''));
   }
@@ -90,5 +100,4 @@ export class QuestionDialogComponent {
   cancel(): void {
     this.dialogRef.close();
   }
-
 }
