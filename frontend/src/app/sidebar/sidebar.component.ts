@@ -9,10 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-sidebarOpen = false;
-toggleSidebar() {
-  this.sidebarOpen = !this.sidebarOpen;
-}
 
-  
 }

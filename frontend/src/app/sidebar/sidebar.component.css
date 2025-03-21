@@ -11,26 +11,12 @@
   transition: right 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-    right: -250px; 
-    height: 100vh;
-    position: fixed;
-    z-index: 1000;
-  }
-
-  .sidebar.active {
-    right: 0; 
-  }
-
   .sidebar-toggle {
     position: absolute;
     left: 0; 
     right: 0; 
     margin-inline: auto; 
     width: fit-content;
-
     top: 10px;
     right: 10px;
     background-color: #007bff;
@@ -41,4 +27,11 @@
     border: none;
     border-radius: 5px;
   }
-}
+  .sidebar {
+    width: 200px;
+    right: -250px; 
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+  }
+

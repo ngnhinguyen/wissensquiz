@@ -1,36 +1,24 @@
-@import './../sidebar/sidebar.component.css';
-.sidebar {
-    border-radius: 8px;
-    background-color: #f8f9fa;
-    position: absolute;
-    left: 10px;
-    top: 167px;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 10px;
-  }
-  
-  .sidebar li {
-    margin-bottom: 15px;
-  }
-  
-  .sidebar a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    padding-right: 5px;
-  }
-  
-  .sidebar a.active {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  .content {
-    margin-left: 220px;
-    padding: 20px;
+.question-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
 }
-  
+
+.options-list {
+  padding-left: 1rem;
+}
+
+@media (max-width: 768px) {
+  .question-card {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .question-text, .explanation, .category {
+    font-size: 0.95rem;
+  }
+}
+
