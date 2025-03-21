@@ -1,5 +1,6 @@
-<button class="sidebar-toggle" >☰ Themen</button>
-<div class="sidebar">
+<button class="sidebar-toggle" (click)="toggleSidebar()">☰ Themen</button>
+
+<div class="sidebar" *ngIf="sidebarOpen">
   <h6>Themen</h6>
   <ul>
       <li>

@@ -1,4 +1,4 @@
-
+/* Sidebar ist standardmäßig rechts draußen */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -8,30 +8,23 @@
   background-color: #f8f9fa;
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: right 0.3s ease;
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
-  .sidebar-toggle {
-    position: absolute;
-    left: 0; 
-    right: 0; 
-    margin-inline: auto; 
-    width: fit-content;
-    top: 10px;
-    right: 10px;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1001;
-    border: none;
-    border-radius: 5px;
-  }
-  .sidebar {
-    width: 200px;
-    right: -250px; 
-    height: 100vh;
-    position: fixed;
-    z-index: 1000;
-  }
-
+/* Der Button ist immer sichtbar und schön zentriert */
+.sidebar-toggle {
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-inline: auto; 
+  width: fit-content;
+  top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1001;
+  border: none;
+  border-radius: 5px;
+}
