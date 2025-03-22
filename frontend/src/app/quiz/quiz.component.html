@@ -1,40 +1,52 @@
-<div class="container mt-5">
-  <h1 class="text-center mb-4" style="color:#800000">Alle Fragen</h1>
-  <div class="row justify-content-center mb-4">
-    <div class="col-12 col-md-6 text-center">
-        <p> <button class="btn w-100 text-white" style="background-color:#800000;" (click)="createQuestion()">Neue Frage erstellen</button>
-        </p>
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wissensquiz</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4" style="color:#800000">Alle Fragen</h1>
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-6 text-center">
+            <p> <button class="btn w-100 text-white" style="background-color:#800000;" (click)="createQuestion()">Neue Frage erstellen</button>
+            </p>
+            
+            <h6 class="text-center" style="color:black">Hier siehst du alle Fragen aus dem Fragenkatalog. Du kannst Fragen hinzufügen, bearbeiten, löschen oder eine neue Quizfrage erstellen.</h6>
+            
+            <h6 class="text-center" style="color:black">Der grüne Button Themen öffnet eine Sidebar mit allen Quizzes. Sobald du auf ein Themenbereich klickst, startet das Wissensquiz!</h6>
+            <h6 class="text-center" style="color:black">Für jede Frage hast du 10 Sekunden Zeit, um eine Antwort auswählen. Viel Erfolg!</h6>
         
-        <h6 class="text-center" style="color:black">Hier siehst du alle Fragen aus dem Fragenkatalog. Du kannst Fragen hinzufügen, bearbeiten, löschen oder eine neue Quizfrage erstellen.</h6>
-        
-        <h6 class="text-center" style="color:black">Der grüne Button Themen öffnet eine Übersicht. Sobald du auf ein Themenbereich klickst, startet das Wissensquiz.</h6>
-        <h6 class="text-center" style="color:black">Für jede Frage hast du 10 Sekunden Zeit, um eine Antwort auswählen. Viel Erfolg!</h6>
+        </div>
+      </div>
     
+      <div *ngFor="let question of questions; let i = index" class="question-card mb-5 p-3 shadow-sm bg-white rounded">
+        <h3 class="text-dark">Frage {{ i + 1 }}:</h3>
+        <p class="question-text">
+          <strong>{{ question.question }}</strong>
+          <a (click)="updateQuestion(question._id)" class="text-decoration-none ms-2" style="cursor: pointer;">
+            <span class="bi bi-pencil-square" style="color:#800000"></span>
+          </a>
+          <a (click)="deleteQuestion(question)" class="text-decoration-none ms-2" style="cursor: pointer;">
+            <span class="bi bi-trash" style="color:#800000"></span>
+          </a>
+        </p>
+    
+        <p><strong>Antwortmöglichkeiten:</strong></p>
+        <ul class="options-list ps-3">
+          <li *ngFor="let option of question.options">{{ option }}</li>
+        </ul>
+    
+        <p class="correct-answer"><strong>Richtige Antwort:</strong> <span class="text-success">{{ question.correctAnswer }}</span></p>
+        <p class="explanation"><strong>Erklärung:</strong> {{ question.explanation }}</p>
+        <p class="category"><strong>Kategorie:</strong> {{ question.category }}</p>
+        <hr>
+      </div>
+    
+      <app-sidebar></app-sidebar>
     </div>
-  </div>
-
-  <div *ngFor="let question of questions; let i = index" class="question-card mb-5 p-3 shadow-sm bg-white rounded">
-    <h3 class="text-dark">Frage {{ i + 1 }}:</h3>
-    <p class="question-text">
-      <strong>{{ question.question }}</strong>
-      <a (click)="updateQuestion(question._id)" class="text-decoration-none ms-2" style="cursor: pointer;">
-        <span class="bi bi-pencil-square" style="color:#800000"></span>
-      </a>
-      <a (click)="deleteQuestion(question)" class="text-decoration-none ms-2" style="cursor: pointer;">
-        <span class="bi bi-trash" style="color:#800000"></span>
-      </a>
-    </p>
-
-    <p><strong>Antwortmöglichkeiten:</strong></p>
-    <ul class="options-list ps-3">
-      <li *ngFor="let option of question.options">{{ option }}</li>
-    </ul>
-
-    <p class="correct-answer"><strong>Richtige Antwort:</strong> <span class="text-success">{{ question.correctAnswer }}</span></p>
-    <p class="explanation"><strong>Erklärung:</strong> {{ question.explanation }}</p>
-    <p class="category"><strong>Kategorie:</strong> {{ question.category }}</p>
-    <hr>
-  </div>
-
-  <app-sidebar></app-sidebar>
-</div>
+    
+  </body>
