@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-title>Frage bearbeiten/erstellen</mat-card-title>
+  <form [formGroup]="questionForm" (ngSubmit)="saveQuestion()">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Frage</mat-label>
+      <input matInput formControlName="question" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Kategorie</mat-label>
+      <input matInput formControlName="category" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Korrekte Antwort</mat-label>
+      <input matInput formControlName="correctAnswer" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Erklärung</mat-label>
+      <textarea matInput formControlName="explanation"></textarea>
+    </mat-form-field>
+
+    <div formArrayName="options">
+      <h4>Antwortoptionen</h4>
+      <div *ngFor="let option of options.controls; let i = index" class="option-row">
+        <mat-form-field appearance="outline" class="option-input">
+          <mat-label>Option {{ i + 1 }}</mat-label>
+          <input matInput [formControlName]="i">
+        </mat-form-field>
+        <button mat-icon-button color="warn" *ngIf="options.length > 2" (click)="removeOption(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <button mat-button type="button" (click)="addOption()">Option hinzufügen</button>
+    </div>
+
+    <div class="actions">
+      <button mat-button type="button" (click)="cancel()">Abbrechen</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!questionForm.valid">Speichern</button>
+    </div>
+  </form>
+</mat-card>

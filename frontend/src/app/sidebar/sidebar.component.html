@@ -1,0 +1,28 @@
+<button class="sidebar-toggle" (click)="toggleSidebar()">☰ Themen</button>
+
+<div class="sidebar" *ngIf="sidebarOpen">
+  <h6>Wähle ein Wissensquiz:</h6>
+  <ul>
+      <li>
+      <a routerLink="/html-quiz" routerLinkActive="active">HTML</a>
+    <li>
+      <a routerLink="/css-quiz" routerLinkActive="active">CSS</a>
+    </li>
+    <li>
+      <a routerLink="/javascript-quiz" routerLinkActive="active">JavaScript</a>
+    </li>
+    <li>
+      <a routerLink="/angular-quiz" routerLinkActive="active">Angular</a>
+    </li>
+    <li>
+      <a routerLink="/backend-quiz" routerLinkActive="active">Backend</a>
+    </li>
+    <li>
+      <a routerLink="/frontendandbackend-quiz" routerLinkActive="active">Frontend & Backend</a>
+    </li>
+    <li>
+      <a routerLink="/quiz" routerLinkActive="active">Frage hinzufügen, bearbeiten, löschen</a>
+    </li>
+  </ul>
+</div>
+  

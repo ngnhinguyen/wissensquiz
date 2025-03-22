@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Member } from '../../../../backend/member';
+import { Question } from '../../../../backend/question';
 
 //CRUD- Operationen: Create, Read, Update, Delete
 //Benutzer Authentifizierung: Login, Logout
@@ -16,6 +17,74 @@ export class BackendService {
 
 
   constructor() { }
+
+  async deleteQuestion(question: string): Promise<void> {
+    //delete request
+    return fetch(`${this.apiURL}/questions/${question}`, {
+      method: 'DELETE',
+    }).then(res => {
+      if (!res.ok) {
+        throw new Error('Failed to delete question');
+      }
+    });
+  }
+  
+  async createQuestion(newData: Question): Promise<Question> {
+    let response = await fetch(`${this.apiURL}/questions`, {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Fehler beim Erstellen der Frage`);
+    }
+  
+    let newQuestion = await response.json();
+    console.log('New question:', newQuestion);
+    return newQuestion;
+  }
+
+  async updateQuestion(id: string, updateData: Partial<Question>): Promise<Question> {
+    let response = await fetch(`${this.apiURL}/questions/id/${id}`, {
+      method: "PUT", // PUT für Update-Requests
+      body: JSON.stringify(updateData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Fehler beim Aktualisieren der Frage mit ID ${id}`);
+    }
+  
+    let updatedQuestion = await response.json();
+    console.log('Updated question:', updatedQuestion);
+    return updatedQuestion;
+  }
+  
+
+  async getQuestionsByCategory(category: string): Promise<Question[]> {
+    const response = await fetch(`${this.apiURL}/questions/category/${category}`);
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+}
+
+  async getAllQuestions(): Promise<Question[]> { //Funktion gibt Promise zurück, dass in der Zukunft (später) eine Liste von Member Objekten enhtalten wird
+    const response = await fetch(`${this.apiURL}/questions`, { //Warte, bis fetch fertig ist, also stoppt kurz und wartet auf Antwort vom Server, sobald sie da ist, in response speichern //!!! ohne await läuft Code weiter, ohne dass die Daten bzw. Antwort da ist
+    });
+    if (!response.ok) { //falls response (antwort vom server, nachdem anfrage bearbeitet wurde) nicht ok, Fehlermeldung, z.B. wenn Server nicht erreichbar ist
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json(); // Gibt Promise zurück als JSON
+    //const data = await response.json();
+    //console.log('Geladene Mitglieder:', data); // Debugging   
+    //return data;
+  }
 
   // GET Anfrage an /mmembers, um alle Mitglieder zu erhalten
   //async, wenn Aufgabe länger braucht, als der Rest des Codes, wird asynchron ausgeführt

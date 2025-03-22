@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const { options } = require('../../frontend/src/app/shared/routes');
 
 const questionSchema = new mongoose.Schema({
-    questions:String,
+    question: String,
     options: [String],
     correctAnswer: String,
     explanation: String,
+    category: String,
 });
 
 module.exports = mongoose.model('Question', questionSchema);

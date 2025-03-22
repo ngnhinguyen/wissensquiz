@@ -1,8 +1,90 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
-const Member = require('./models/members').default;
+const Question = require('./models/question');
+const Member = require('./models/members'); //.default entfernt
 const userService = require('./userService');
+
+router.delete('/questions/:question', async (req, res) => {
+    try {
+        await Question.deleteOne({  _id: req.params.question });
+        res.status(200).send();
+    } catch (error) {
+        res.status(404).send({ error: 'Question not found' });
+    }
+});
+
+// POST: Neue Frage erstellen
+router.post('/questions', async (req, res) => {
+    try {
+        const newQuestion = new Question({
+            question: req.body.question,
+            answer: req.body.answer,
+            category: req.body.category,
+            options: req.body.options,
+            explanation: req.body.explanation,
+            correctAnswer: req.body.correctAnswer,
+        });
+        await newQuestion.save();
+        res.status(201).send(newQuestion);
+    } catch (error) {
+        console.error('Fehler beim Erstellen der Frage:', error);
+        res.status(500).json({ message: 'Fehler beim Erstellen der Frage', error });
+    }
+});
+
+// GET: Fragen nach Kategorie abrufen
+router.get('/questions/category/:category', async (req, res) => {
+    try {
+        const category = req.params.category;  // Kategorie aus URL-Parameter abrufen
+        const questions = await Question.find({ category: category });
+
+        if (questions.length === 0) {
+            return res.status(404).json({ message: "Keine Fragen gefunden" });
+        }
+        res.json(questions);
+    } catch (error) {
+        res.status(500).json({ message: "Fehler beim Abrufen der Fragen", error });
+    }
+});
+
+//getall questions
+router.get('/questions', async (req, res) => {
+    try {
+        const questions = await Question.find(); // Alle Fragen abrufen
+        console.log('Geladene Fragen:', questions); // Debugging
+        res.json(questions);
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Fragen:', error); // Logge den Fehler ins Terminal
+        res.status(500).json({ message: 'Fehler beim Abrufen der Fragen', error });
+    }
+});
+
+// Update one question
+router.put('/questions/id/:id', async (req, res) => {
+    try {
+        // Dynamisch die Felder aktualisieren
+        let updates = {};
+        if (req.body) {
+            updates = req.body;
+        }
+        // Aktualisiere das Dokument in der Datenbank
+        const updatedQuestion = await Question.findOneAndUpdate(
+            { _id: req.params.id }, // Filter
+            { $set: updates },      // Aktualisierungen
+            { new: true }           // Rückgabe des aktualisierten Dokuments
+        );
+
+        // Überprüfe, ob ein Dokument gefunden wurde
+        if (!updatedQuestion) {
+            return res.status(404).send({ error: 'Question not found' });
+        }
+        res.status(200).send(updatedQuestion);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Error updating question', details: error });
+    }
+});
 
 //Express backend mit node.js mit express empfängt daten und verarbeitet sie
 
@@ -23,7 +105,6 @@ authenticateToken = (req, res, next) => {
         req.user = decoded; next();
     });
 };
-
 
 // GET all members, aber nur wenn der Benutzer authentifiziert ist bzw eingeloggt ist
 //In der Datenbank MongoDB wird in der collection (tabellensammlung von mitgleidern) sucht die Abfrage nach members Objekten und gibt sie zurück
@@ -65,40 +146,6 @@ router.get('/members/:id', async (req, res) => {
     }
 })
 
-// Update one member
-router.put('/members/:id', async (req, res) => {
-    try {
-        // Dynamisch die Felder aktualisieren
-        const updates = {};
-        if (req.body.forename) {  // Verwende "forename" statt "firstname"
-            updates.forename = req.body.forename;
-        }
-        if (req.body.surname) {
-            updates.surname = req.body.surname;
-        }
-        if (req.body.email) {
-            updates.email = req.body.email;
-        }
-
-        // Aktualisiere das Dokument in der Datenbank
-        const updatedMember = await Member.findOneAndUpdate(
-            { _id: req.params.id }, // Filter
-            { $set: updates },      // Aktualisierungen
-            { new: true }           // Rückgabe des aktualisierten Dokuments
-        );
-
-        // Überprüfe, ob ein Dokument gefunden wurde
-        if (!updatedMember) {
-            return res.status(404).send({ error: 'Member not found' });
-        }
-
-        res.status(200).send(updatedMember);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ error: 'Error updating member', details: error });
-    }
-});
-
 // delete one member via members/:id
 router.delete('/members/:forename', async (req, res) => {
     try {
@@ -127,6 +174,5 @@ router.post('/login', async (req, res) => {
     const token = userService.generateToken(user); //methode generateToken aus userService.js wird aufgerufen
     res.status(200).json({ token }); //token wird zurückgegeben
 });
-
 
 module.exports = router; // Am Ende der Datei platzieren

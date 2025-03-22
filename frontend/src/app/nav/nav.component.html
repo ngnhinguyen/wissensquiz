@@ -1,16 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #707070">
     <div class="container-fluid">
-      <a class="navbar-brand" href="https://www.htw-berlin.de/">HTW</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="https://freiheit.f4.htw-berlin.de/webtech/">WebTech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <h2 *ngIf="email">Hallo {{ email }}!</h2>
           <a class="nav-link"[routerLink]="['/']">Start</a>
-          <a class="nav-link"[routerLink]="['/login']">Login</a>
-          <a class="nav-link" [routerLink]="['/create']">Hier registrieren</a>
-          <a class="nav-link" [routerLink]="['/table']">Teilnehmer/innen</a>
           <a class="nav-link" [routerLink]="['/quiz']">Quiz</a>
         </div>
       </div>

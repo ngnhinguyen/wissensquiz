@@ -1,0 +1,39 @@
+<h1>Test Angular</h1>
+<div class="quiz-container" *ngIf="!quizCompleted; else quizEnd">
+    <div class="quiz-header">
+      <span class="question-count">Frage {{ currentQuestionIndex + 1 }} von {{ totalQuestions }}</span>
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="progress"></div>
+      </div>
+      <span class="timer">⏱ {{ timeLeft }}s</span>
+    </div>
+    <div class="question-box">
+      <h3>FRAGE {{ currentQuestionIndex + 1 }}</h3>
+      <p>{{ questions[currentQuestionIndex]?.question }}</p>
+    </div>
+    <div class="options">
+      <button
+        *ngFor="let option of questions[currentQuestionIndex]?.options"
+        (click)="selectAnswer(option)"
+        [class.selected]="option === selectedAnswer"
+        [class.correct]="option === selectedAnswer && option === questions[currentQuestionIndex]?.correctAnswer"
+        [class.wrong]="option === selectedAnswer && option !== questions[currentQuestionIndex]?.correctAnswer"
+        [disabled]="selectedAnswer !== null"
+      >
+        {{ option }}
+      </button>
+    </div>
+  
+    <button class="next-button" (click)="nextQuestion()" [disabled]="!selectedAnswer">WEITER</button>
+  </div>
+  
+  <ng-template #quizEnd>
+    <div class="quiz-container">
+      <h2>Test beendet</h2>
+      <p>Du hast {{ correctAnswers }} von {{ totalQuestions }} Fragen richtig beantwortet.</p>
+      <p>Gesamtzeit: {{ totalTime }} Sekunden</p>
+      <button (click)="restartQuiz()">Quiz erneut starten</button>
+    </div>
+  </ng-template>
+  
+    <app-sidebar></app-sidebar>
