@@ -1,61 +1,82 @@
-<<<<<<< HEAD
-# Puzzleturnier
+# WebTech Wissensquiz
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+## Beschreibung der Anwendung
 
-## Development server
+Das **WebTech Wissensquiz** ist eine interaktive Webanwendung zur Überprüfung und Festigung des Wissens rund um die Themen der Lehrveranstaltung *Web-Technologien*. Nutzer:innen können Fragen beantworten und ihr Wissen zu verschiedenen Themenbereichen testen:
 
-To start a local development server, run:
+- **HTML** – Grundlagen des Webs
+- **CSS** – Styles und Layouts
+- **JavaScript** – Interaktive Funktionen und Logik
+- **Angular** – Entwicklung moderner Single Page Applications
+- **Backend** – Datenbanken, Serverlogik und APIs
+- **Frontend & Backend** 
 
-```bash
-ng serve
-```
+Die Anwendung bietet sowohl eine Quiz-Ansicht als auch eine Verwaltungsoberfläche zum Erstellen, Bearbeiten und Löschen von Fragen.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Screenshots
+Platzhalter
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installationsanleitung
 
-```bash
-ng generate component component-name
-```
+### Voraussetzungen
+- Node.js (empfohlen: Version 18+)
+- Angular CLI (`npm install -g @angular/cli`)
+- MongoDB (lokal oder als Cloud-Service)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Installation
+1. Repository clonen:
+   ```
+   git clone https://github.com/ngnhinguyen/wissensquiz.git
+   cd wissensquiz
+   ```
 
-```bash
-ng generate --help
-```
+2. Abhängigkeiten installieren:
+   ```
+   cd frontend
+   npm install
+   cd ../backend
+   npm install
+   ```
 
-## Building
+3. MongoDB starten (falls lokal) und Umgebungsvariablen in `.env` anpassen:
+   ```
+   DB_CONNECTION=mongodb://localhost:27017/questions
+   PORT=3002
+   ```
 
-To build the project run:
+4. Backend starten:
+   ```
+   cd backend
+   node server.js
+   ```
 
-```bash
-ng build
-```
+5. Frontend starten:
+   ```
+   cd frontend
+   ng serve
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+6. Anwendung im Browser öffnen:
+   ```
+   http://localhost:4200
+   ```
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Verwendete KI-Werkzeuge und deren Einsatz
 
-```bash
-ng test
-```
+- **ChatGPT (OpenAI)**
+  - Unterstützung bei der Code-Generierung (Seed-Daten, Routing, MongoDB Queries)
+  - Hilfe bei der Formulierung von Quizfragen
+  - Überarbeitung von Texten und README
+- **GitHub Copilot**
+  - Code-Vervollständigungen im Angular-Frontend
+---
 
-## Running end-to-end tests
+## Weitere Features
+- Personalisierte Quiz-Auswertung
+- Punktesystem
+- Responsive Design-Optimierung
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
->>>>>>> recovery-branch
