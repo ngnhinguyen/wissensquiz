@@ -1,4 +1,13 @@
-<h1>Test HTML</h1>
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wissensquiz</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Test HTML</h1>
 <div class="quiz-container" *ngIf="!quizCompleted; else quizEnd">
     <div class="quiz-header">
       <span class="question-count">Frage {{ currentQuestionIndex + 1 }} von {{ totalQuestions }}</span>
@@ -39,4 +48,4 @@
   </ng-template>
   
     <app-sidebar></app-sidebar>
-    ```
+  </body>
