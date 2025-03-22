@@ -1,4 +1,4 @@
-/* Sidebar ist standardmäßig rechts draußen */
+
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -12,7 +12,6 @@
   transition: transform 0.3s ease;
 }
 
-/* Der Button ist immer sichtbar und schön zentriert */
 .sidebar-toggle {
   position: absolute;
   left: 0; 

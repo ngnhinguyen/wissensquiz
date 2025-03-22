@@ -7,6 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { CssQuizComponent } from './css-quiz/css-quiz.component';
 import { HtmlQuizComponent } from './html-quiz/html-quiz.component';
+import { JavascriptQuizComponent } from './javascript-quiz/javascript-quiz.component';
+import { AngularQuizComponent } from './angular-quiz/angular-quiz.component';
+import { BackendQuizComponent} from './backend-quiz/backend-quiz.component';
+import { FrontendandbackendQuizComponent } from './frontendandbackend-quiz/frontendandbackend-quiz.component';
 
 
 export const routes: Routes = [{
@@ -30,5 +34,9 @@ export const routes: Routes = [{
 { path: "quiz", component: QuizComponent },
 { path: "css-quiz", component: CssQuizComponent},
 { path: "html-quiz", component: HtmlQuizComponent},
+{path: "javascript-quiz", component: JavascriptQuizComponent},
+{path: "angular-quiz", component: AngularQuizComponent},
+{path: "backend-quiz", component: BackendQuizComponent},
+{path: "frontendandbackend-quiz", component: FrontendandbackendQuizComponent},
 
 { path: "**", redirectTo: "" },];
