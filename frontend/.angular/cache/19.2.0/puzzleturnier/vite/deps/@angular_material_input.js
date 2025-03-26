@@ -7,7 +7,7 @@ import {
 import {
   AutofillMonitor,
   TextFieldModule
-} from "./chunk-MYPBUVV2.js";
+} from "./chunk-42ZQ7HNX.js";
 import {
   MAT_FORM_FIELD,
   MatError,
@@ -18,23 +18,26 @@ import {
   MatLabel,
   MatPrefix,
   MatSuffix
-} from "./chunk-EWOAEV2S.js";
+} from "./chunk-BK5T22ZZ.js";
 import {
-  ErrorStateMatcher,
-  MatCommonModule,
-  _ErrorStateTracker,
-  _IdGenerator
-} from "./chunk-B5YPIGAS.js";
-import "./chunk-VV7YYU6C.js";
-import {
-  Platform,
-  coerceBooleanProperty,
   getSupportedInputTypes
-} from "./chunk-SCQDUQ72.js";
+} from "./chunk-ET57N6KK.js";
+import {
+  coerceBooleanProperty
+} from "./chunk-7G7FWXWM.js";
+import {
+  MatCommonModule,
+  _IdGenerator
+} from "./chunk-45Y5I6CC.js";
+import "./chunk-IUNZXDGN.js";
+import {
+  Platform
+} from "./chunk-E3CY3NPG.js";
 import "./chunk-K5UB3T5J.js";
 import {
   Directive,
   ElementRef,
+  Injectable,
   InjectionToken,
   Input,
   NgModule,
@@ -51,17 +54,92 @@ import {
   ɵɵattribute,
   ɵɵclassProp,
   ɵɵdefineDirective,
+  ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵhostProperty,
   ɵɵlistener
 } from "./chunk-ZB77F6IA.js";
 
+// node_modules/@angular/material/fesm2022/input-value-accessor-8a79a24e.mjs
+var MAT_INPUT_VALUE_ACCESSOR = new InjectionToken("MAT_INPUT_VALUE_ACCESSOR");
+
+// node_modules/@angular/material/fesm2022/error-options-aca21924.mjs
+var ShowOnDirtyErrorStateMatcher = class _ShowOnDirtyErrorStateMatcher {
+  isErrorState(control, form) {
+    return !!(control && control.invalid && (control.dirty || form && form.submitted));
+  }
+  static ɵfac = function ShowOnDirtyErrorStateMatcher_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _ShowOnDirtyErrorStateMatcher)();
+  };
+  static ɵprov = ɵɵdefineInjectable({
+    token: _ShowOnDirtyErrorStateMatcher,
+    factory: _ShowOnDirtyErrorStateMatcher.ɵfac
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ShowOnDirtyErrorStateMatcher, [{
+    type: Injectable
+  }], null, null);
+})();
+var ErrorStateMatcher = class _ErrorStateMatcher {
+  isErrorState(control, form) {
+    return !!(control && control.invalid && (control.touched || form && form.submitted));
+  }
+  static ɵfac = function ErrorStateMatcher_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _ErrorStateMatcher)();
+  };
+  static ɵprov = ɵɵdefineInjectable({
+    token: _ErrorStateMatcher,
+    factory: _ErrorStateMatcher.ɵfac,
+    providedIn: "root"
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ErrorStateMatcher, [{
+    type: Injectable,
+    args: [{
+      providedIn: "root"
+    }]
+  }], null, null);
+})();
+
+// node_modules/@angular/material/fesm2022/error-state-8f4ce1af.mjs
+var _ErrorStateTracker = class {
+  _defaultMatcher;
+  ngControl;
+  _parentFormGroup;
+  _parentForm;
+  _stateChanges;
+  /** Whether the tracker is currently in an error state. */
+  errorState = false;
+  /** User-defined matcher for the error state. */
+  matcher;
+  constructor(_defaultMatcher, ngControl, _parentFormGroup, _parentForm, _stateChanges) {
+    this._defaultMatcher = _defaultMatcher;
+    this.ngControl = ngControl;
+    this._parentFormGroup = _parentFormGroup;
+    this._parentForm = _parentForm;
+    this._stateChanges = _stateChanges;
+  }
+  /** Updates the error state based on the provided error state matcher. */
+  updateErrorState() {
+    const oldState = this.errorState;
+    const parent = this._parentFormGroup || this._parentForm;
+    const matcher = this.matcher || this._defaultMatcher;
+    const control = this.ngControl ? this.ngControl.control : null;
+    const newState = matcher?.isErrorState(control, parent) ?? false;
+    if (newState !== oldState) {
+      this.errorState = newState;
+      this._stateChanges.next();
+    }
+  }
+};
+
 // node_modules/@angular/material/fesm2022/input.mjs
 function getMatInputUnsupportedTypeError(type) {
   return Error(`Input type "${type}" isn't supported by matInput.`);
 }
-var MAT_INPUT_VALUE_ACCESSOR = new InjectionToken("MAT_INPUT_VALUE_ACCESSOR");
 var MAT_INPUT_INVALID_TYPES = ["button", "checkbox", "file", "hidden", "image", "radio", "range", "reset", "submit"];
 var MAT_INPUT_CONFIG = new InjectionToken("MAT_INPUT_CONFIG");
 var MatInput = class _MatInput {

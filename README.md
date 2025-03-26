@@ -9,12 +9,67 @@ Das **WebTech Wissensquiz** ist eine interaktive Webanwendung zur Überprüfung 
 - **JavaScript** – Interaktive Funktionen und Logik
 - **Angular** – Entwicklung moderner Single Page Applications
 - **Backend** – Datenbanken, Serverlogik und APIs
-- **Frontend & Backend** 
+- **Frontend & Backend** - Anbindung Frontend und Backend
 
 Die Anwendung bietet sowohl eine Quiz-Ansicht als auch eine Verwaltungsoberfläche zum Erstellen, Bearbeiten und Löschen von Fragen.
 
-### Screenshots
-Platzhalter
+## Screenshots
+
+Im Folgenden findest du einige Screenshots, die die wichtigsten Funktionen und Ansichten der Anwendung zeigen.
+
+---
+
+### Startseite
+
+Die Startseite gibt eine Einführung in das Projekt und motiviert zur Teilnahme am Quiz.
+
+![Startseite](frontend/src/assets/qu1.png)
+
+---
+
+### Fragenübersicht und Menü
+
+Hier sieht man alle gespeicherten Fragen. Es ist möglich, neue Fragen hinzuzufügen, bestehende zu bearbeiten oder zu löschen.
+In der Menüanzeige sind die Quizzes hinterlegt.
+
+![Fragenübersicht](frontend/src/assets/qu2.png)
+![Menü](frontend/src/assets/qu3.png)
+![Auszug der Fragen](frontend/src/assets/qu9.png)
+
+
+---
+
+### Frage erstellen und bearbeiten (Dialog)
+
+In diesem Dialog können neue Fragen erstellt oder bestehende bearbeitet werden.
+
+![Frage erstellen](frontend/src/assets/qu8.png)
+![Frage bearbeiten](frontend/src/assets/qu6.png)
+![Frage speichern](frontend/src/assets/qu7.png)
+
+---
+
+### Lösch-Dialog
+
+Vor dem Löschen einer Frage erscheint ein Bestätigungsdialog, um unbeabsichtigtes Löschen zu verhindern.
+
+![Lösch-Dialog](frontend/src/assets/q10.png)
+
+---
+
+### HTML-Quiz (Frageanzeige)
+
+So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 Sekunden Zeit zur Beantwortung.
+
+![Quizfrage](frontend/src/assets/qu4.png)
+
+---
+
+### Quiz-Ergebnis
+
+Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtzeit angezeigt.
+
+![Quiz-Ergebnis](frontend/src/assets/qu5.png)
 
 ---
 
@@ -36,17 +91,18 @@ Platzhalter
    ```
    cd frontend
    npm install
+   ng add @angular/material
    cd ../backend
    npm install
    ```
 
-3. MongoDB starten (falls lokal) und Umgebungsvariablen in `.env` anpassen:
+3. Optional MongoDB starten (falls lokal) und Umgebungsvariablen in `.env` anpassen:
    ```
    DB_CONNECTION=mongodb://localhost:27017/questions
    PORT=3002
    ```
 
-4. Backend starten:
+4. Backend mit Quizfragen starten:
    ```
    cd backend
    node server.js
@@ -78,5 +134,3 @@ Platzhalter
 ## Weitere Features
 - Personalisierte Quiz-Auswertung
 - Punktesystem
-- Responsive Design-Optimierung
-
