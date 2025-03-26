@@ -13,8 +13,57 @@ Das **WebTech Wissensquiz** ist eine interaktive Webanwendung zur Überprüfung 
 
 Die Anwendung bietet sowohl eine Quiz-Ansicht als auch eine Verwaltungsoberfläche zum Erstellen, Bearbeiten und Löschen von Fragen.
 
-### Screenshots
-Platzhalter
+## Screenshots
+
+Im Folgenden findest du einige Screenshots, die die wichtigsten Funktionen und Ansichten der Anwendung zeigen.
+
+---
+
+### Startseite
+
+Die Startseite gibt eine Einführung in das Projekt und motiviert zur Teilnahme am Quiz.
+
+![Startseite](frontend/src/assets/quiz1.png)
+
+---
+
+### Fragenübersicht
+
+Hier sieht man alle gespeicherten Fragen. Es ist möglich, neue Fragen hinzuzufügen, bestehende zu bearbeiten oder zu löschen.
+
+![Fragenübersicht](frontend/src/assets/quiz2.png)
+
+---
+
+### Frage bearbeiten / erstellen (Dialog)
+
+In diesem Dialog können neue Fragen erstellt oder bestehende bearbeitet werden.
+
+![Frage bearbeiten](frontend/src/assets/quiz5.png)
+
+---
+
+### Lösch-Dialog
+
+Vor dem Löschen einer Frage erscheint ein Bestätigungsdialog, um unbeabsichtigtes Löschen zu verhindern.
+
+![Lösch-Dialog](frontend/src/assets/quiz6.png)
+
+---
+
+### HTML-Quiz (Frageanzeige)
+
+So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 Sekunden Zeit zur Beantwortung.
+
+![Quizfrage](frontend/src/assets/quiz3.png)
+
+---
+
+### Quiz-Ergebnis
+
+Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtzeit angezeigt.
+
+![Quiz-Ergebnis](frontend/src/assets/quiz4.png)
 
 ---
 
@@ -36,6 +85,7 @@ Platzhalter
    ```
    cd frontend
    npm install
+   ng add @angular/material
    cd ../backend
    npm install
    ```

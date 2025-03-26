@@ -1,15 +1,17 @@
 import {
+  coerceBooleanProperty
+} from "./chunk-7G7FWXWM.js";
+import {
   MatCommonModule,
   ObserversModule,
   _IdGenerator
-} from "./chunk-B5YPIGAS.js";
+} from "./chunk-45Y5I6CC.js";
 import {
   Directionality
-} from "./chunk-VV7YYU6C.js";
+} from "./chunk-IUNZXDGN.js";
 import {
-  Platform,
-  coerceBooleanProperty
-} from "./chunk-SCQDUQ72.js";
+  Platform
+} from "./chunk-E3CY3NPG.js";
 import {
   NgTemplateOutlet
 } from "./chunk-K5UB3T5J.js";
@@ -196,7 +198,7 @@ var SharedResizeObserver = class _SharedResizeObserver {
   }], () => [], null);
 })();
 
-// node_modules/@angular/material/fesm2022/form-field.mjs
+// node_modules/@angular/material/fesm2022/form-field-50ec956f.mjs
 var _c0 = ["notch"];
 var _c1 = ["matFormFieldNotchedOutline", ""];
 var _c2 = ["*"];
@@ -1571,6 +1573,8 @@ var MatFormField = class _MatFormField {
     }]
   });
 })();
+
+// node_modules/@angular/material/fesm2022/module-0776ab9b.mjs
 var MatFormFieldModule = class _MatFormFieldModule {
   static ɵfac = function MatFormFieldModule_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _MatFormFieldModule)();
@@ -1593,51 +1597,6 @@ var MatFormFieldModule = class _MatFormFieldModule {
     }]
   }], null, null);
 })();
-var matFormFieldAnimations = {
-  // Represents:
-  // trigger('transitionMessages', [
-  //   // TODO(mmalerba): Use angular animations for label animation as well.
-  //   state('enter', style({opacity: 1, transform: 'translateY(0%)'})),
-  //   transition('void => enter', [
-  //     style({opacity: 0, transform: 'translateY(-5px)'}),
-  //     animate('300ms cubic-bezier(0.55, 0, 0.55, 0.2)'),
-  //   ]),
-  // ])
-  /** Animation that transitions the form field's error and hint messages. */
-  transitionMessages: {
-    type: 7,
-    name: "transitionMessages",
-    definitions: [{
-      type: 0,
-      name: "enter",
-      styles: {
-        type: 6,
-        styles: {
-          opacity: 1,
-          transform: "translateY(0%)"
-        },
-        offset: null
-      }
-    }, {
-      type: 1,
-      expr: "void => enter",
-      animation: [{
-        type: 6,
-        styles: {
-          opacity: 0,
-          transform: "translateY(-5px)"
-        },
-        offset: null
-      }, {
-        type: 4,
-        styles: null,
-        timings: "300ms cubic-bezier(0.55, 0, 0.55, 0.2)"
-      }],
-      options: null
-    }],
-    options: {}
-  }
-};
 
 export {
   MatLabel,
@@ -1655,7 +1614,6 @@ export {
   MAT_FORM_FIELD,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormField,
-  MatFormFieldModule,
-  matFormFieldAnimations
+  MatFormFieldModule
 };
-//# sourceMappingURL=chunk-EWOAEV2S.js.map
+//# sourceMappingURL=chunk-BK5T22ZZ.js.map

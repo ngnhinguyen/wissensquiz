@@ -4,7 +4,7 @@ import {
   _bindEventWithOptions,
   coerceElement,
   coerceNumberProperty
-} from "./chunk-SCQDUQ72.js";
+} from "./chunk-E3CY3NPG.js";
 import {
   DOCUMENT
 } from "./chunk-K5UB3T5J.js";
@@ -245,6 +245,8 @@ var CdkTextareaAutosize = class _CdkTextareaAutosize {
   _cachedLineHeight;
   /** Cached height of a textarea with only the placeholder. */
   _cachedPlaceholderHeight;
+  /** Cached scroll top of a textarea */
+  _cachedScrollTop;
   /** Used to reference correct document/window */
   _document = inject(DOCUMENT, {
     optional: true
@@ -370,6 +372,7 @@ var CdkTextareaAutosize = class _CdkTextareaAutosize {
     }
     this._cacheTextareaLineHeight();
     this._cacheTextareaPlaceholderHeight();
+    this._cachedScrollTop = this._textareaElement.scrollTop;
     if (!this._cachedLineHeight) {
       return;
     }
@@ -413,6 +416,7 @@ var CdkTextareaAutosize = class _CdkTextareaAutosize {
     } = textarea;
     if (!this._destroyed.isStopped && this._hasFocus) {
       textarea.setSelectionRange(selectionStart, selectionEnd);
+      textarea.scrollTop = this._cachedScrollTop;
     }
   }
   static ɵfac = function CdkTextareaAutosize_Factory(__ngFactoryType__) {
@@ -500,4 +504,4 @@ export {
   CdkTextareaAutosize,
   TextFieldModule
 };
-//# sourceMappingURL=chunk-MYPBUVV2.js.map
+//# sourceMappingURL=chunk-42ZQ7HNX.js.map
