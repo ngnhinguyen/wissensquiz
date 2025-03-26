@@ -39,7 +39,7 @@ export class QuizComponent implements OnInit {
   }  
 
   deleteQuestion(question: Question): void {
-    if (confirm(`Möchten Sie die Frage ${question.question} wirklich löschen?`)) {
+    if (confirm(`Möchten Sie die Frage <"${question.question}"> wirklich löschen?`)) {
       this.backendService.deleteQuestion(question._id)
         .then(() => {
           this.questions = this.questions.filter(question => question._id!== question._id);

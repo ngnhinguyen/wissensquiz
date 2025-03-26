@@ -9,7 +9,7 @@ Das **WebTech Wissensquiz** ist eine interaktive Webanwendung zur Überprüfung 
 - **JavaScript** – Interaktive Funktionen und Logik
 - **Angular** – Entwicklung moderner Single Page Applications
 - **Backend** – Datenbanken, Serverlogik und APIs
-- **Frontend & Backend** 
+- **Frontend & Backend** - Anbindung Frontend und Backend
 
 Die Anwendung bietet sowohl eine Quiz-Ansicht als auch eine Verwaltungsoberfläche zum Erstellen, Bearbeiten und Löschen von Fragen.
 
@@ -23,23 +23,29 @@ Im Folgenden findest du einige Screenshots, die die wichtigsten Funktionen und A
 
 Die Startseite gibt eine Einführung in das Projekt und motiviert zur Teilnahme am Quiz.
 
-![Startseite](frontend/src/assets/quiz1.png)
+![Startseite](frontend/src/assets/qu1.png)
 
 ---
 
-### Fragenübersicht
+### Fragenübersicht und Menü
 
 Hier sieht man alle gespeicherten Fragen. Es ist möglich, neue Fragen hinzuzufügen, bestehende zu bearbeiten oder zu löschen.
+In der Menüanzeige sind die Quizzes hinterlegt.
 
-![Fragenübersicht](frontend/src/assets/quiz2.png)
+![Fragenübersicht](frontend/src/assets/qu2.png)
+![Menü](frontend/src/assets/qu3.png)
+![Auszug der Fragen](frontend/src/assets/qu9.png)
+
 
 ---
 
-### Frage bearbeiten / erstellen (Dialog)
+### Frage erstellen und bearbeiten (Dialog)
 
 In diesem Dialog können neue Fragen erstellt oder bestehende bearbeitet werden.
 
-![Frage bearbeiten](frontend/src/assets/quiz5.png)
+![Frage erstellen](frontend/src/assets/qu8.png)
+![Frage bearbeiten](frontend/src/assets/qu6.png)
+![Frage speichern](frontend/src/assets/qu7.png)
 
 ---
 
@@ -47,7 +53,7 @@ In diesem Dialog können neue Fragen erstellt oder bestehende bearbeitet werden.
 
 Vor dem Löschen einer Frage erscheint ein Bestätigungsdialog, um unbeabsichtigtes Löschen zu verhindern.
 
-![Lösch-Dialog](frontend/src/assets/quiz6.png)
+![Lösch-Dialog](frontend/src/assets/q10.png)
 
 ---
 
@@ -55,7 +61,7 @@ Vor dem Löschen einer Frage erscheint ein Bestätigungsdialog, um unbeabsichtig
 
 So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 Sekunden Zeit zur Beantwortung.
 
-![Quizfrage](frontend/src/assets/quiz3.png)
+![Quizfrage](frontend/src/assets/qu4.png)
 
 ---
 
@@ -63,7 +69,7 @@ So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 
 
 Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtzeit angezeigt.
 
-![Quiz-Ergebnis](frontend/src/assets/quiz4.png)
+![Quiz-Ergebnis](frontend/src/assets/qu5.png)
 
 ---
 
@@ -90,13 +96,13 @@ Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtz
    npm install
    ```
 
-3. MongoDB starten (falls lokal) und Umgebungsvariablen in `.env` anpassen:
+3. Optional MongoDB starten (falls lokal) und Umgebungsvariablen in `.env` anpassen:
    ```
    DB_CONNECTION=mongodb://localhost:27017/questions
    PORT=3002
    ```
 
-4. Backend starten:
+4. Backend mit Quizfragen starten:
    ```
    cd backend
    node server.js
@@ -128,5 +134,3 @@ Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtz
 ## Weitere Features
 - Personalisierte Quiz-Auswertung
 - Punktesystem
-- Responsive Design-Optimierung
-

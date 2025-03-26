@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wissensquiz</title>
-    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
@@ -15,11 +14,17 @@
             <p> <button class="btn w-100 text-white" style="background-color:#800000;" (click)="createQuestion()">Neue Frage erstellen</button>
             </p>
             
-            <h6 class="text-center" style="color:black">Hier siehst du alle Fragen aus dem Fragenkatalog. Du kannst Fragen hinzufügen, bearbeiten, löschen oder eine neue Quizfrage erstellen.</h6>
+            <div class="alert alert-info text-center" role="alert">
+              <strong>Hinweis:</strong> Hier siehst du alle Fragen aus dem Fragenkatalog.<br><br>
+              Du kannst Fragen <strong> hinzufügen, bearbeiten, löschen </strong> oder eine <strong> neue Quizfrage </strong> erstellen.<br><br>
+              Der grüne Button <strong>Themen</strong> öffnet eine Sidebar mit allen Quizzes.<br><br>
+              Sobald du auf ein Themenbereich klickst, startet das Wissensquiz!<br><br>
+              <strong>Für jede Frage hast du 10 Sekunden Zeit</strong>, um eine Antwort auszuwählen. 
+              <br>
+              <br>
+              Viel Erfolg!
+            </div>
             
-            <h6 class="text-center" style="color:black">Der grüne Button Themen öffnet eine Sidebar mit allen Quizzes. Sobald du auf ein Themenbereich klickst, startet das Wissensquiz!</h6>
-            <h6 class="text-center" style="color:black">Für jede Frage hast du 10 Sekunden Zeit, um eine Antwort auswählen. Viel Erfolg!</h6>
-        
         </div>
       </div>
     
@@ -45,7 +50,6 @@
         <p class="category"><strong>Kategorie:</strong> {{ question.category }}</p>
         <hr>
       </div>
-    
       <app-sidebar></app-sidebar>
     </div>
     
