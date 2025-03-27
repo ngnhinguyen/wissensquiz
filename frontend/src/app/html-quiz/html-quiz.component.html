@@ -8,7 +8,9 @@
   </head>
   <body>
     <h1>HTML Quiz</h1>
-<div class="quiz-container" *ngIf="!quizCompleted; else quizEnd">
+
+    <!--Angular prüft den Wert von quizCompleted-->
+<div class="quiz-container" *ngIf="!quizCompleted; else quizEnd"> <!--  zeigt den Fragebereich, wenn das Quiz noch nicht fertig ist -->
     <div class="quiz-header">
       <span class="question-count">Frage {{ currentQuestionIndex + 1 }} von {{ totalQuestions }}</span>
       <div class="progress-bar">
@@ -22,9 +24,16 @@
       <p>{{ questions[currentQuestionIndex]?.question }}</p>
     </div>
   
-    <div class="options">
+
+    <!-- Optionen der Fragen anzeigen und hervorgeben mit css Klasse selected (optisch hintergrundfarbe hervorheben)-->
+    <!-- Optionen der Fragen anzeigen und hervorgeben mit css Klasse correct (optisch grün hervorheben)-->
+    <!-- Optionen der Fragen anzeigen und hervorgeben mit css Klasse wrong (optischrrot hervorheben)-->
+    <!-- Sobald eine Antwort gewählt wurde (selectedAnswer ist nicht leer),
+      werden alle Buttons deaktiviert (nicht mehr klickbar). disabled (nicht mehr klickbar)-->
+    <!-- Optionen der Fragen anzeigen und hervorgeben mit click event selectAnswer(option)-->
+   <div class="options">
       <button
-        *ngFor="let option of questions[currentQuestionIndex]?.options"
+        *ngFor="let option of questions[currentQuestionIndex]?.options" 
         (click)="selectAnswer(option)"
         [class.selected]="option === selectedAnswer"
         [class.correct]="option === selectedAnswer && option === questions[currentQuestionIndex]?.correctAnswer"
@@ -34,10 +43,20 @@
         {{ option }}
       </button>
     </div>
-  
+  <!-- Weiter Button, der nur klickbar ist, wenn eine Antwort ausgewählt wurde. -->
     <button class="next-button" (click)="nextQuestion()" [disabled]="!selectedAnswer">WEITER</button>
   </div>
   
+  <!-- Dies ist ein Angular-Template-Block, der nicht sofort gerendert wird, sondern nur dann, wenn du ihn über eine Bedingung aktivierst – z. B. mit *ngIf.-->
+  <!--Das #quizEnd ist also ein benannter Template-Block, der über *ngIf's else-Teil eingebunden wird.-->
+  <!-- Solange quizCompleted === false, wird das Quiz angezeigt.
+
+Sobald quizCompleted === true, wird das quizEnd Template stattdessen angezeigt.
+
+-->
+<!--Rendern: Aus Code (HTML, CSS, JS) wird sichtbare Oberfläche im Browser gemacht.-->
+<!--Ein ng-template ist unsichtbar, bis du es aktivierst. Es ist ein Platzhalter für HTML-Code, der nur unter bestimmten Bedingungen angezeigt wird.
+Hier wird das erst sichtbar, wenn quiz beendet.-->
   <ng-template #quizEnd>
     <div class="quiz-container">
       <h2>Test beendet</h2>

@@ -9,5 +9,6 @@
     position: fixed;
     bottom: 0px;
     width: 100%;
+    opacity: calc(0.5);
   }
   

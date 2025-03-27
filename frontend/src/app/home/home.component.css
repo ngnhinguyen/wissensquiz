@@ -4,57 +4,62 @@
 body {
   margin: 0;
   color: white;
+  padding-block: 30px;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: white;
-  background-size: cover;
+  border-style: groove;
 }
   
   .container {
     max-width: 800px;
     text-align: center;
-    background: white;
+    background:cornsilk;
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius:30px;
+    border-color: rgb(68, 39, 2);
+      color: #1a322b;
+  
+
   }
   
-  header h1 {
-    font-size: 2.5rem;
+  header h2 {
     font-weight:bold;
-    color: #800000;
+    color: #1a322b;
   }
   
   header p {
     font-size: 1.2rem;
-    color: #555;
+    color: #1a322b;
   }
   
   .description {
     margin-top: 20px;
-    font-size: 1rem;
     line-height: 1.6;
-    color: #666;
+    color: #1a322b;
   }
   
   
   .cta .btn {
     text-decoration: none;
     display: inline-block;
-    background: #7ed321;
+    background: #789068;
     color: white;
     padding: 12px 25px;
     border-radius: 6px;
     font-size: 1rem;
     margin: 0 10px;
+    border-color: #1a322b;
   }
   
   .cta .btn.secondary {
-    background: #7ed321;
+    background:#789068;
+    border-color: #1a322b;
+    border-radius: 6px;
   }
   
   .cta .btn:hover {
-    background: #7ed321;
+    background: #789068;
+        border-color: #1a322b;
+    border-radius: 6px;
   }
