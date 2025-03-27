@@ -23,7 +23,7 @@ Im Folgenden findest du einige Screenshots, die die wichtigsten Funktionen und A
 
 Die Startseite gibt eine Einführung in das Projekt und motiviert zur Teilnahme am Quiz.
 
-![Startseite](frontend/src/assets/qu1.png)
+![Startseite](frontend/src/assets/1.png)
 
 ---
 
