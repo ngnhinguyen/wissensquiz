@@ -67,7 +67,7 @@ So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 
 
 Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtzeit angezeigt.
 
-![Quiz-Ergebnis](frontend/src/assets/qu2.png)
+![Quiz-Ergebnis](frontend/src/assets/2.png)
 
 ---
 
