@@ -18,12 +18,11 @@
   right: 0; 
   margin-inline: auto; 
   width: fit-content;
-  top: 10px;
-  background-color: #7ed321;
+  top: 4px;
+  background-color:#dd7d51;
+  border-style:groove; border-color: black;border-radius: 4px;
   color: #fff;
   padding: 10px;
   cursor: pointer;
   z-index: 1001;
-  border: none;
-  border-radius: 5px;
 }

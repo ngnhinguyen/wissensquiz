@@ -55,19 +55,27 @@ export class QuizComponent implements OnInit {
   }
 
 
+
   updateQuestion(questionId: string): void {
     const dialogRef = this.dialog.open(QuestionDialogComponent, {
+      //Mit data übergeben wir die aktuelle Frage (die zur übergebenen ID passt) an das Dialogfenster, es wird nach der passenden ID gesucht
       data: {
         question: this.questions.find(q => q._id === questionId),
       },
     });
 
+
+//afterClosed() wird ausgeführt, wenn das Dialogfenster geschlossen wurde. Es erhält die aktualisierte Frage als Argument, die wir dann im UI aktualisieren
+//findIndex() gibt den Index des Elements zurück, das die übergebene ID hat. Wenn die ID nicht gefunden wird, gibt findIndex() -1 zurück
+//Wenn die Frage gefunden wurde, aktualisieren wir sie im Array der Fragen
+//In updatedQuestion steht dann die neue, geänderte Frage (falls der Benutzer gespeichert hat).
+//Wir suchen die Frage im Array der Fragen und ersetzen sie durch die aktualisierte Frage
     dialogRef.afterClosed().subscribe((updatedQuestion) => {
-      if (updatedQuestion) {
+      if (updatedQuestion) { //Nur wenn updatedQuestion nicht leer ist, wurde die Frage aktualisiert – sonst wurde z. B. nur abgebrochen.
         console.log('Frage aktualisiert:', updatedQuestion);
         // Aktualisiere die Liste der Fragen im UI
-        const index = this.questions.findIndex(q => q._id === questionId);
-        if (index !== -1) {
+        const index = this.questions.findIndex(q => q._id === questionId); //Sucht in der Liste questions die Position der alten Frage anhand der ID.
+        if (index !== -1) { //ersetzt die alte frage durch die neue
           this.questions[index] = updatedQuestion;
         }
 

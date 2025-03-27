@@ -1,6 +1,12 @@
+
 .question-card {
-  background-color: #f8f9fa;
+  background-color:cornsilk;
   border-radius: 10px;
+  font-size: 2.5rem;
+  font-weight:bold;
+  color: #1a322b;
+      border-radius:30px;
+    border-color: rgb(68, 39, 2);
 }
 
 .options-list {
@@ -20,5 +26,6 @@
   .question-text, .explanation, .category {
     font-size: 0.95rem;
   }
+  
+  
 }
-
