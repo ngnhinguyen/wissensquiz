@@ -1,31 +1,14 @@
-
 .question-card {
-  background-color:cornsilk;
-  border-radius: 10px;
-  font-size: 2.5rem;
-  font-weight:bold;
+  background-color: cornsilk;
+  border-radius: 30px;
+  border: 2px solid rgb(68, 39, 2);
+  padding: 25px;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: #1a322b;
-      border-radius:30px;
-    border-color: rgb(68, 39, 2);
-}
-
-.options-list {
-  padding-left: 1rem;
-}
-
-@media (max-width: 768px) {
-  .question-card {
-    padding: 15px;
-    font-size: 0.95rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-  .question-text, .explanation, .category {
-    font-size: 0.95rem;
-  }
-  
-  
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }

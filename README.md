@@ -23,7 +23,7 @@ Im Folgenden findest du einige Screenshots, die die wichtigsten Funktionen und A
 
 Die Startseite gibt eine Einführung in das Projekt und motiviert zur Teilnahme am Quiz.
 
-![Startseite](frontend/src/assets/qu1.png)
+![Startseite](frontend/src/assets/1.png)
 
 ---
 
@@ -32,8 +32,8 @@ Die Startseite gibt eine Einführung in das Projekt und motiviert zur Teilnahme 
 Hier sieht man alle gespeicherten Fragen. Es ist möglich, neue Fragen hinzuzufügen, bestehende zu bearbeiten oder zu löschen.
 In der Menüanzeige sind die Quizzes hinterlegt.
 
-![Fragenübersicht](frontend/src/assets/qu2.png)
-![Menü](frontend/src/assets/qu3.png)
+![Fragenübersicht](frontend/src/assets/3.png)
+![Menü](frontend/src/assets/4.png)
 ![Auszug der Fragen](frontend/src/assets/qu9.png)
 
 
@@ -43,9 +43,7 @@ In der Menüanzeige sind die Quizzes hinterlegt.
 
 In diesem Dialog können neue Fragen erstellt oder bestehende bearbeitet werden.
 
-![Frage erstellen](frontend/src/assets/qu8.png)
-![Frage bearbeiten](frontend/src/assets/qu6.png)
-![Frage speichern](frontend/src/assets/qu7.png)
+![Frage erstellen und bearbeiten](frontend/src/assets/7.png)
 
 ---
 
@@ -53,7 +51,7 @@ In diesem Dialog können neue Fragen erstellt oder bestehende bearbeitet werden.
 
 Vor dem Löschen einer Frage erscheint ein Bestätigungsdialog, um unbeabsichtigtes Löschen zu verhindern.
 
-![Lösch-Dialog](frontend/src/assets/q10.png)
+![Lösch-Dialog](frontend/src/assets/5.png)
 
 ---
 
@@ -61,7 +59,7 @@ Vor dem Löschen einer Frage erscheint ein Bestätigungsdialog, um unbeabsichtig
 
 So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 Sekunden Zeit zur Beantwortung.
 
-![Quizfrage](frontend/src/assets/qu4.png)
+![Quizfrage](frontend/src/assets/9.png)
 
 ---
 
@@ -69,7 +67,7 @@ So sieht eine laufende Quizfrage im HTML-Bereich aus. Die Nutzer:innen haben 10 
 
 Am Ende wird eine Übersicht der richtigen Antworten und der benötigten Gesamtzeit angezeigt.
 
-![Quiz-Ergebnis](frontend/src/assets/qu5.png)
+![Quiz-Ergebnis](frontend/src/assets/2.png)
 
 ---
 
